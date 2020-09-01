@@ -1,0 +1,27 @@
+{
+  "name": "shoppie-be",
+  "version": "1.0.0",
+  "description": "backend for the shoppie awards app",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/letsandeepio/shoppies.git"
+  },
+  "keywords": [
+    "shopify",
+    "shoppie"
+  ],
+  "author": "Sandeep Kumar Chopra",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/letsandeepio/shoppies/issues"
+  },
+  "homepage": "https://github.com/letsandeepio/shoppies#readme",
+  "dependencies": {
+    "graphql-yoga": "^1.18.3"
+  }
+}
