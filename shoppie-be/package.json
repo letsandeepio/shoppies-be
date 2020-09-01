@@ -6,6 +6,7 @@
   "scripts": {
     "lint": "eslint",
     "dev": "nodemon .",
+    "db:reset": "node bin/resetdb.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,10 +27,13 @@
     "@prisma/client": "^2.6.0",
     "bcrypt": "^5.0.0",
     "graphql-yoga": "^1.18.3",
-    "jsonwebtoken": "^8.5.1"
+    "jsonwebtoken": "^8.5.1",
+    "dotenv": "^8.2.0"
   },
   "devDependencies": {
     "@prisma/cli": "^2.6.0",
-    "eslint": "^7.8.0"
+    "eslint": "^7.8.0",
+    "chalk": "^2.4.2",
+    "pg-native": "^3.0.0"
   }
 }

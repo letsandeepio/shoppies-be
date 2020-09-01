@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const { APP_SECRET } = require('../helpers/constants');
 const jwt = require('jsonwebtoken');
 
-async function signup(parent, args, context) {
+async function signup(_, args, context) {
   console.log(`Signup received from ${context.request.get('Client')}`);
 
   const hashPw = hashedPassword(args.password);
@@ -31,7 +31,7 @@ async function signup(parent, args, context) {
   };
 }
 
-async function login(parent, args, context) {
+async function login(_, args, context) {
   console.log(`Login received from ${context.request.get('Client')}`);
 
   let error = '';
