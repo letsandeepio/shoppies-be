@@ -2,15 +2,24 @@ type Query {
   info: String!
 }
 
+type Movie {
+  Title: String!
+  Year: String!
+  imdbID: String!
+  Type: String!
+  Poster: String!
+}
+
 type Mutation {
   signup(email: String!, password: String!, name: String!): AuthPayload
   login(email: String!, password: String!): AuthPayload
+  search(title: String!): [Movie]
 }
 
 type AuthPayload {
   token: String
   user: User
-  error: String!
+  error: String
 }
 
 type User {
