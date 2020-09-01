@@ -1,19 +1,14 @@
 const { GraphQLServer } = require('graphql-yoga');
 
-const typeDefs = `
-type Query {
-  info: String!
-}
-`;
+const Query = require('./resolvers/Query.js');
+const Mutation = require('./resolvers/Mutation.js');
 
 const resolvers = {
-  Query: {
-    info: () => `This is the API of The Shoppie App`
-  }
+  Query
 };
 
 const server = new GraphQLServer({
-  typeDefs,
+  typeDefs: './schema/schema.graphql',
   resolvers
 });
 server.start(() => console.log(`Server is running on http://localhost:4000`));
