@@ -13,7 +13,15 @@ async function search(_, args) {
   return results.data.Search;
 }
 
+async function getMovieDetails(_, args) {
+  const results = await axios.get(
+    `http://www.omdbapi.com/?i=${args.imdbID}&apikey=${omdbKey}`
+  );
+  return results.data;
+}
+
 module.exports = {
   info,
-  search
+  search,
+  getMovieDetails
 };

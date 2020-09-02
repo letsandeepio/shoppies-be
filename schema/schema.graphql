@@ -1,9 +1,18 @@
 type Query {
   info: String!
-  search(title: String!): [Movie]
+  search(title: String!): [MovieSnapshot]
+  getMovieDetails(imdbID: String!): Movie
 }
 
 type Movie {
+  Title: String!
+  Year: String!
+  imdbID: String!
+  Poster: String!
+  imdbRating: String!
+}
+
+type MovieSnapshot {
   Title: String!
   Year: String!
   imdbID: String!
