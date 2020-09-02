@@ -1,5 +1,6 @@
 type Query {
   info: String!
+  search(title: String!): [Movie]
 }
 
 type Movie {
@@ -13,7 +14,6 @@ type Movie {
 type Mutation {
   signup(email: String!, password: String!, name: String!): AuthPayload
   login(email: String!, password: String!): AuthPayload
-  search(title: String!): [Movie]
 }
 
 type AuthPayload {

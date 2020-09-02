@@ -1,11 +1,8 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const axios = require('axios');
 
 const hashedPassword = require('../helpers/hashedPassword');
 const { APP_SECRET } = require('../helpers/constants');
-
-const omdbKey = process.env.OMDB_KEY;
 
 async function signup(_, args, context) {
   console.log(`Signup received from ${context.request.get('Client')}`);
@@ -63,16 +60,7 @@ async function login(_, args, context) {
   };
 }
 
-async function search(_, args) {
-  console.log('searching for ' + args.title);
-  const results = await axios.get(
-    `http://www.omdbapi.com/?s=${args.title}&apikey=${omdbKey}&type=movie`
-  );
-  return results.data.Search;
-}
-
 module.exports = {
   signup,
-  login,
-  search
+  login
 };

@@ -6,6 +6,7 @@
   "scripts": {
     "lint": "eslint",
     "dev": "nodemon .",
+    "start": "node index.js",
     "db:reset": "node bin/resetdb.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
