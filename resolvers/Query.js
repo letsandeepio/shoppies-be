@@ -10,6 +10,7 @@ async function search(_, args) {
   const results = await axios.get(
     `http://www.omdbapi.com/?s=${args.title}&apikey=${omdbKey}&type=movie`
   );
+  await sleep(1);
   return results.data.Search;
 }
 
@@ -17,7 +18,12 @@ async function getMovieDetails(_, args) {
   const results = await axios.get(
     `http://www.omdbapi.com/?i=${args.imdbID}&apikey=${omdbKey}`
   );
+  await sleep(1);
   return results.data;
+}
+
+function sleep(amount) {
+  return new Promise((resolve) => setTimeout(resolve, amount * 1000));
 }
 
 module.exports = {
