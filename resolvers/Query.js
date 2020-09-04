@@ -23,8 +23,18 @@ async function getMovieDetails(_, args) {
   return results.data;
 }
 
+async function getNominations(_, args, context) {
+  const { uuid } = args;
+  const user = await context.prisma.users.findOne({
+    where: { uuid }
+  });
+  if (!user) throw new Error('No nominations for the given UUID');
+  return user.nominations;
+}
+
 module.exports = {
   info,
   search,
-  getMovieDetails
+  getMovieDetails,
+  getNominations
 };

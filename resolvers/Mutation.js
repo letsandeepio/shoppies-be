@@ -4,6 +4,8 @@ const { v4: uuidv4 } = require('uuid');
 
 const hashedPassword = require('../helpers/hashedPassword');
 const { APP_SECRET } = require('../helpers/constants');
+const { sleep } = require('../helpers/sleep');
+const { getUserId } = require('../helpers/getUserId');
 
 async function signup(_, args, context) {
   console.log(`Signup received from ${context.request.get('Client')}`);
@@ -62,7 +64,7 @@ async function login(_, args, context) {
 }
 
 async function nominate(_, args, context) {
-  const id = 1;
+  const id = getUserId(context);
 
   const nominations = args.nominations;
   const uuid = uuidv4().split('-').pop();
@@ -78,6 +80,7 @@ async function nominate(_, args, context) {
     url: uuid
   };
 }
+
 module.exports = {
   signup,
   login,
