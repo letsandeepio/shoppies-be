@@ -72,11 +72,12 @@ async function nominate(_, args, context) {
     data: { uuid, nominations }
   });
 
+  await sleep(2);
+
   return {
     url: uuid
   };
 }
-
 module.exports = {
   signup,
   login,
