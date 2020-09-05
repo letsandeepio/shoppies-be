@@ -26,7 +26,7 @@ async function getNominations(_, args, context) {
   const user = await context.prisma.users.findOne({
     where: { uuid }
   });
-  if (!user) throw new Error('No nominations for the given UUID');
+  if (!user) throw new Error('No nominations are avaiable at this moment :(');
   await sleep(2);
   return { nominations: user.nominations, nominatedBy: user.name };
 }

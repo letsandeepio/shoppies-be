@@ -27,6 +27,9 @@ async function signup(_, args, context) {
   } catch (e) {
     console.log(e.message);
   }
+
+  await sleep(1);
+
   return {
     token,
     user,
@@ -54,6 +57,8 @@ async function login(_, args, context) {
   } else {
     error = "User doesn't exist.";
   }
+
+  await sleep(1);
 
   return {
     token,
