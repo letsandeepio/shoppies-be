@@ -2,7 +2,12 @@ type Query {
   info: String!
   search(title: String!): [MovieSnapshot]
   getMovieDetails(imdbID: String!): Movie
-  getNominations(uuid: String!): String!
+  getNominations(uuid: String!): NominationDetails
+}
+
+type NominationDetails {
+  nominations: String!
+  nominatedBy: String!
 }
 
 type Movie {

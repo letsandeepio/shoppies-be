@@ -25,8 +25,7 @@ async function signup(_, args, context) {
     });
     token = jwt.sign({ userId: user.id }, APP_SECRET);
   } catch (e) {
-    error = e.message;
-    console.log(error);
+    console.log(e.message);
   }
   return {
     token,

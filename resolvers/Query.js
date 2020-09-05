@@ -7,7 +7,6 @@ function info() {
 }
 
 async function search(_, args) {
-  console.log('searching for ' + args.title);
   const results = await axios.get(
     `http://www.omdbapi.com/?s=${args.title}&apikey=${omdbKey}&type=movie`
   );
@@ -19,7 +18,6 @@ async function getMovieDetails(_, args) {
   const results = await axios.get(
     `http://www.omdbapi.com/?i=${args.imdbID}&apikey=${omdbKey}`
   );
-  await sleep(1);
   return results.data;
 }
 
@@ -29,7 +27,8 @@ async function getNominations(_, args, context) {
     where: { uuid }
   });
   if (!user) throw new Error('No nominations for the given UUID');
-  return user.nominations;
+  await sleep(2);
+  return { nominations: user.nominations, nominatedBy: user.name };
 }
 
 module.exports = {
